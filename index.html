@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ssense.github.io/vue-carousel/js/vue-carousel.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <h1>わんわん王国</h1>
+        <div id="text-box">
+            <input v-bind:value="name" v-on:input="name = $event.target.value" placeholder="名前の入力">
+            <p>こんにちは! {{ name }}さん</p>
+        </div>
+
+
+        <!--ドロップダウンメニュー-->
+        <div class="dropdown">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+        お知らせ
+    </button>
+            <div class="container">
+                <div class="row">
+                    <!-- 選択肢 -->
+                    <div class="dropdown-menu col-md-4">
+                        <a class="dropdown-item" href="#">最近の</a>
+                        <a class="dropdown-item" href="#">1ヶ月前</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">戻る</a>
+                    </div>
+                </div>
+            </div>
+            <nav id="g-nav">
+                <ul class="current">
+                    <li id="list01" class="current"><a href="#content01"><i class="fas fa-sun"></i></a></li>
+                    <li id="list02"><a href="#content02"><i class="fas fa-cloud-sun"></i></a></li>
+                    <li id="list03"><a href="#content03"><i class="fas fa-cloud-sun-rain"></i></a></li>
+                    <li id="list04"><a href="#content04"><i class="fas fa-umbrella-beach"></i></a></li>
+                </ul>
+            </nav>
+    </header>
+
+
+    <div id="content01" class="box">
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <div id="main">
+        <carousel :autoplay="true" :autoplayTimeout="100" :loop="true" :per-page="1" :navigation-enabled="true" navigation-prev-label="〈" navigation-next-label="〉" :speed="1000">
+            <slide>
+
+                <img class="center" v-bind:src="dogphotos[0].imageURL">
+            </slide>
+            <slide>
+                <img class="center" v-bind:src="dogphotos[1].imageURL">
+            </slide>
+            <slide>
+                <img class="center" v-bind:src="dogphotos[2].imageURL">
+            </slide>
+            <slide>
+                <img class="center" v-bind:src="dogphotos[3].imageURL">
+            </slide>
+        </carousel>
+    </div>
+
+
+    <div id="tabs-class">
+        <ul class="tabs-menu">
+            <li v-bind:class="{active: activeTab === 'tabs-1'}" v-on:click="activeTab = 'tabs-1'"><a href="./scroll/scroll.html">
+         slide
+          </a>
+            </li>
+            <li v-bind:class="{active: activeTab === 'tabs-2'}" v-on:click="activeTab = 'tabs-2'"><a href="./dog/dog.html">
+          setInterval
+          </a>
+            </li>
+            <li v-bind:class="{active: activeTab === 'tabs-3'}" v-on:click="activeTab = 'tabs-3'">
+                <a href="https://pocarisweat.jp/action/">
+          Action
+          </a>
+            </li>
+        </ul>
+        <section class="tabs-content">
+            <section v-if="activeTab === 'tabs-1'">
+            </section>
+            <section v-else-if="activeTab === 'tabs-2'">
+            </section>
+            <section v-else-if="activeTab === 'tabs-3'">
+            </section>
+        </section>
+    </div>
+
+
+
+    <div id="content02" class="box">
+        <i class="fas fa-cloud-sun"></i>
+    </div>
+    <!--アコーディオンメニュー-->
+    <div class='accordion'>
+        <h2>押したらわかる説明</h2>
+        <ul id="menu-list">
+            <li class="list-item">
+                <p class="menu-title">チワワ</p>
+                <div class="contents">
+                    <p>世界で一番小さい犬種 チワワは、世界で公認されているもののうち、もっとも小さい犬種。祖先は9世紀頃のトルテカ文明の時代から飼われていましたが、一時期は絶滅の危機に瀕し、1850年頃にメキシコのチワワという町で3頭のチワワが発見され、現在に続くチワワのベースとなりました。
+                    </p>
+                </div>
+            </li>
+            <li class="list-item">
+                <p class="menu-title">プードル</p>
+                <div class="contents">
+                    <p>
+                        日本で特に人気のある犬種のひとつ、トイ・プードル。街でもよく見かけますよね。アニコム損保の人気犬種ランキングでも12年連続1位を獲得していて、多くの人を魅了している犬種であることがよくわかります。この根強い人気には、どういった理由があるのでしょうか。今回は、可愛らしさだけじゃないトイ・プードルの魅力をご紹介します。 ぬいぐるみのようにキュートで愛らしいビジュアルで多くの人を魅了するトイ・プードルは、賢くて、毛も抜けにくいなどの理由から飼いやすいことでも知られています。アニコム損保の人気犬種ランキングでも12年連続1位を獲得していて、根強い人気を誇ります
+                    </p>
+                </div>
+            </li>
+            <li class="list-item">
+                <p class="menu-title">柴犬</p>
+                <div class="contents">
+                    <p>日本の天然記念物にも指定されている、柴犬。古来から日本人の狩猟の伴侶として、山間部を駆け巡ってきたタフな犬種です。</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <!-- モーダル -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  犬の気持ち！
+</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">犬の気持ち</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    犬がしっぽを振るときは、主に興奮、気持ちが動いた瞬間です。しっぽが上がっているときと同様に、攻撃的なときと嬉しいとき、どちらでもしっぽを振ります。「犬がしっぽを振っている＝嬉しいとき」というイメージがあるかもしれませんが、必ずしも嬉しいわけではないことを覚えておきましょう。 また、服従しているときや相手をなだめようとして低い位置で振ることもあります。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--スライドメニュー-->
+    <div id="menu">
+        <span class="show-menu"></span>
+        <div class="inner">
+            <h1>MENU</h1>
+            <ul>
+                <li><span>TOP</span></li>
+                <li><span>CONCEPT</span></li>
+                <li><span>DOGRUN</span></li>
+                <li><span>DOGCAFE</span></li>
+                <li><span>WALKING COURSE</span></li>
+                <li><span>NEWS</span></li>
+                <li><span>ACCESS</span></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="content03" class="box">
+        <i class="fas fa-cloud-sun-rain"></i>
+    </div>
+    <!--ツールチップ-->
+    <div class="tool">
+        <p>犬占い</p>
+        <ul id="sample1">
+            <li>占い1
+                <div class="sample1-tooltips">大吉</div>
+            </li>
+            <li>占い2
+                <div class="sample1-tooltips">末吉</div>
+            </li>
+            <li>占い3
+                <div class="sample1-tooltips">大凶</div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="change-image">
+        <p>時間経過による画像の切り替え</p>
+        <!-- APIから取得した犬種と画像を表示する -->
+        <div><img id='image' src='message'></div>
+    </div>
+
+
+    <!--ボタンの変化-->
+    <div class="bt-area">
+        <a href="#">change button</a>
+    </div>
+
+
+    <!--SVGアニメーション-->
+    <div class="anime">
+        <svg version="1.1" id="group" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 440.98 146.06" style="enable-background:new 0 0 440.98 146.06;" xml:space="preserve">
+<path class="item01" d="M16,142.06V121.7c2.93,0,5.43-0.16,7.49-0.49c2.06-0.33,3.69-0.95,4.89-1.87c1.19-0.92,2.06-2.28,2.61-4.07
+  c0.54-1.79,0.81-4.1,0.81-6.92V6.7h29.16v102.95c0,7.17-0.9,13.17-2.69,18c-1.79,4.83-4.91,8.44-9.37,10.83
+  c-4.45,2.39-10.7,3.58-18.73,3.58H16z"/>
+<path class="item02" d="M74.15,138.64L99.07,6.7h33.23l24.6,131.94h-26.88l-4.4-27.85h-19.38l-4.56,27.85H74.15z M108.85,93.35h14.01
+  l-7-51.47L108.85,93.35z"/>
+<path class="item03" d="M170.26,138.64V6.7h44.31c7.93,0,14.44,1.49,19.55,4.48c5.1,2.99,8.9,7.33,11.4,13.03
+  c2.5,5.7,3.75,12.62,3.75,20.77c0,10.21-1.69,18-5.05,23.37c-3.37,5.38-7.93,9.1-13.68,11.16c-5.76,2.06-12.22,3.09-19.38,3.09
+  h-11.73v56.03H170.26z M199.41,62.24h9.77c3.58,0,6.3-0.65,8.14-1.95c1.84-1.3,3.07-3.26,3.66-5.86c0.6-2.61,0.9-5.92,0.9-9.94
+  c0-3.36-0.24-6.32-0.73-8.88c-0.49-2.55-1.66-4.59-3.5-6.11c-1.85-1.52-4.72-2.28-8.63-2.28h-9.61V62.24z"/>
+<path class="item04" d="M256.91,138.64L281.84,6.7h33.23l24.6,131.94h-26.88l-4.4-27.85H289l-4.56,27.85H256.91z M291.61,93.35h14.01
+  l-7-51.47L291.61,93.35z"/>
+<path class="item05" d="M353.02,138.64V6.7h20.52l27.04,63.53V6.7h24.11v131.94h-19.71l-27.04-68.41v68.41H353.02z"/>
+</svg>
+    </div>
+
+
+
+    <div class="parallax">
+        <section class="parallax-section parallax-section-1">
+            <div class="text">
+                春
+            </div>
+        </section>
+        <section class="parallax-section parallax-section-2">
+            <div class="text">
+                夏
+            </div>
+        </section>
+        <section class="parallax-section parallax-section-3">
+            <div class="text">
+                秋
+            </div>
+        </section>
+        <section class="parallax-section parallax-section-4">
+            <div class="text">
+                冬
+            </div>
+        </section>
+    </div>
+
+
+
+    <div class="snap">
+        <section class="area">
+
+            <div id="content04" class="box">
+                <i class="fas fa-umbrella-beach"></i>
+            </div>
+            <div class="picture">
+                <picture>
+                    <source media="(max-width:640px)" srcset="./images/natu.jpg">
+                    <source media="(min-width:960px)" srcset="./images/natu.jpg">
+                    <img src="./images/natu.jpg">
+                </picture>
+            </div>
+
+        </section>
+        <section class="area">
+            <div class="main-movie">
+                <div id="js-main-movie"></div>
+                <div class="main-title-wrap">
+                    <div class="main-title">
+                        <div class="main-title__inner">
+                            <p class="test-title">背景をYouTubeに</p>
+
+                            <ul class="buttons">
+                                <li><a href="" target="_blank"></a>前の動画</a>
+                                </li>
+                                <li><a href="" target="_blank"></a>次の動画</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="area">
+
+            <div id='scroll'>
+                <ul class="horizontal-list">
+                    <li class="item"> <img src="./images/IMG_6165.JPG" alt="" 　height="50%" width="50%"></li>
+                    <li class="item"> <img src="./images/IMG_6166.JPG" alt="" 　height="50%" width="50%"></li>
+                    <li class="item"> <img src="./images/IMG_6167.JPG" alt="" 　height="50%" width="50%"></li>
+                    <li class="item"> <img src="./images/IMG_6168.PNG" alt="" 　height="50%" width="50%"></li>
+                    <li class="item"><img src="./images/IMG_6172.JPG" alt="" 　height="50%" width="50%"></li>
+                    <li class="item"><img src="./images/IMG_6170.JPG" alt="" 　height="50%" width="50%"></li>
+                </ul>
+            </div>
+        </section </div>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+</body>
+
+</html>

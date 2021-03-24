@@ -1,0 +1,655 @@
+@charset "UTF-8";
+
+#main{
+    height: 300px;
+    display: flex;
+}
+
+.center {
+  display:block;
+  margin:auto;
+}
+
+.VueCarousel-slide{
+    margin: 0 auto;
+}
+
+
+/*タブの表示*/
+/* ulのデフォルトスタイルを消去 */
+.tabs-menu {
+  margin: 0 auto;
+  list-style-type: none;
+	width: 25%;
+	display: flex;
+}
+
+/* タブの基本スタイル */
+.tabs-menu{
+  margin-top: 100px;
+}
+
+.tabs-menu li {
+  margin-right: 8px;
+  margin-bottom: -1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+  border-radius: 4px 4px 0 0;
+  font-size: 15px;
+  /* 各プロパティをふわっと変える演出 */
+  transition: all .15s;
+}
+.tabs-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #557F95;
+  text-decoration: none;
+}
+
+/* 非選択のタブにマウスカーソルを乗せたら色を変える */
+.tabs-menu li:not(.active):hover {
+  border-color: #f0f0f0 #f0f0f0 #999;
+  background-color: #f0f0f0;
+}
+
+/* 選択中のタブの色を設定 */
+.tabs-menu .active {
+  border-color: #999 #999 transparent #999;
+  background-color: #fff;
+}
+.tabs-menu .active a {
+  color: #3F4548;
+}
+
+
+/*アコーディオン*/
+.contents {
+    display: none;
+}
+
+#menu-list{
+  margin: 0 auto;
+  list-style-type: none;
+	width: 25%;
+}
+
+.list-item{
+  text-align: center
+}
+
+/*横スクロール*/
+.horizontal-list {
+overflow-x: auto;
+white-space: nowrap;
+-webkit-overflow-scrolling: touch;
+ }
+
+.item {
+/* 横スクロール用 */
+display: inline-block;
+width: 90%;
+
+/* 見た目調整 */
+height: 400px;
+margin: 16px;
+}
+
+
+/*スライドショー*/
+
+#menu {
+  position: fixed;
+  z-index: 300;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+ 
+#menu {
+  top: 0;
+  left: -100vw; /* あらかじめ画面外へ移動しておく */
+  width: 50%;
+  height: 50%;
+  text-align: center;
+}
+ 
+#menu .inner {
+  max-width: none;
+}
+ 
+#menu h1 {
+  padding: 22px 0 0;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 auto;
+}
+ 
+#menu ul {
+  font-size: 0.8em;
+  color: #F4BA14;
+  list-style: none;
+}
+ 
+#menu ul li span {
+  display: block;
+  padding: 1em 0;
+  cursor: pointer;
+}
+
+
+ 
+#menu .show-menu {
+  position: fixed;
+  z-index: 350;
+  top: 10px;
+  right: 10px;
+  padding: 12px 0;
+  border: 2px solid #fff;
+  border-radius: 50%; 
+  line-height: 1;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  width: 44px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  cursor: pointer;
+}
+ 
+#menu .show-menu:before {
+  content: "≡";
+}
+ 
+#menu.SHOW .show-menu:before {
+  content: "×";
+}
+ 
+#menu .inner {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}
+
+/*ツールチップ*/
+#sample1{
+  list-style: none;
+  display: flex;
+}
+#sample1 li {
+  position:relative;
+  margin: 0 auto;
+}
+#sample1 li:hover {
+  background: white;
+}
+.sample1-tooltips {
+  display: none;
+  position: absolute;
+  bottom: -2.8em;
+  left: 0.3em;
+  z-index: 9999;
+  padding: 0.3em 0.5em;
+  color: #FFFFFF;
+  background: red;
+  border-radius: 0.5em;
+}
+.sample1-tooltips:after {
+  width: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0.5em;
+  top: -8px;
+  border-top:8px solid transparent;
+  border-left:8px solid #c72439;
+}
+#sample1 li:hover .sample1-tooltips {
+  display: block;
+}
+.tool{
+  margin: 30px 5px;
+}
+.tool p{
+  text-align: center;
+  font-size: 25px;
+}
+.accordion{
+  margin: 30px 5px;
+}
+.accordion h2{
+  font-size: 25px;
+  text-align: center;
+}
+
+#image {
+    height: 300px;
+}
+
+.change-image{
+  display: block;
+  text-align: center;
+}
+
+
+/*横スクロール*/
+.horizontal-list {
+
+white-space: nowrap;
+ }
+
+.item {
+/* 横スクロール用 */
+display: inline-block;
+
+/* 見た目調整 */
+margin: 16px;
+}
+
+#scroll{
+  display: block;
+}
+
+
+
+.bt-area{
+  margin-top: 30px;
+  display: flex;
+}
+
+.bt-area a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #222222;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    display: block;
+    width: 250px;
+    padding: 9px 0 8px;
+    text-align: center;
+    box-sizing: border-box;
+    border: solid 1px #222222;
+}
+
+@keyframes bg_slide {
+    0% {
+        transform-origin: left top;
+        transform: scaleX(0.0);
+    }
+    100% {
+        transform-origin: left top;
+        transform: scaleX(1.0);
+    }
+}
+
+
+.bt-area a:hover {
+    color: #ffffff;
+    position: relative;
+}
+.bt-area a:hover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #232224;
+}
+
+.bt-area a:hover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #232224;
+    animation: bg_slide 0.4s;
+}
+
+
+/*SVGアニメーション*/
+@keyframes japan {
+  0% {
+    stroke-dashoffset: 2572;
+    fill: transparent;
+    opacity: 1;
+  }
+  40% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+    opacity: 1;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    fill: #357ECF;
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    fill: #357ECF;
+    opacity: 1;
+  }
+  95% {
+    stroke-dashoffset: 0;
+    fill: #357ECF;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #357ECF;
+    opacity: 0;
+  }
+}
+.anime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#group {
+  display: block;
+  width: 100%;
+}
+
+.item01, .item02, .item03, .item04, .item05 {
+  fill: transparent;
+  stroke: #357ECF;
+  stroke-dasharray: 2572;
+  stroke-dashoffset: 0;
+  stroke-width: 1;
+  opacity: 1;
+}
+.item01 {
+  animation: japan 5s ease-in 0s infinite;
+}
+.item02 {
+  animation: japan 5s ease-in 0.2s infinite;
+}
+.item03 {
+  animation: japan 5s ease-in 0.4s infinite;
+}
+.item04 {
+  animation: japan 5s ease-in 0.6s infinite;
+}
+.item05 {
+  animation: japan 5s ease-in 0.8s infinite;
+}
+
+
+
+/*パララックス*/
+.parallax-section {
+  /* 画面全体を覆う */
+  height: 100vh;
+  width: 100%;
+
+  /* 背景が画面全体を覆うようにする */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* 1枚目のスライド */
+.parallax-section-1 {
+  background-image: url(./images/haru.jpg);
+}
+
+/* 2枚目のスライド */
+.parallax-section-2 {
+  background-image: url(./images/natu.jpg);
+}
+
+/* 3枚目のスライド */
+.parallax-section-3 {
+  background-image: url(./images/aki.jpg);
+}
+
+/* 4枚目のスライド */
+.parallax-section-4 {
+  background-image: url(./images/fuyu.jpg);
+}
+
+/* テキストのスタイル */
+.text {
+  /* 左右中央寄せ */
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+
+  /* テキストをセンタリング */
+  text-align: center;
+
+  font-size: 2rem;
+  color: #eee;
+
+  /* 影を付けて読みやすくする */
+  text-shadow:
+  -1px -1px 6px #000,
+  1px -1px 6px #000,
+  -1px 1px 6px #000,
+  1px 1px 6px #000;
+}
+
+
+ 
+.current{
+  list-style: none;
+}
+
+#g-nav{
+  position: fixed;
+  right: 45px;
+  top: calc(50% - 60px);
+  z-index: 100;
+}
+
+#list01:after{
+background-image: red;
+background-repeat: no-repet;
+background-position: center center;
+background-size: cover;
+width: 18px;
+height: 18px;
+display: block;
+text-indent: -9999px;
+}
+
+#list02:after{
+background-image: red;
+background-repeat: no-repet;
+background-position: center center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-indent: -9999px;
+}
+
+#list03:after{
+background-image:red;
+background-repeat: no-repet;
+background-position: center center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-indent: -9999px;
+}
+
+#list04:after{
+background-image: red;
+background-repeat: no-repet;
+background-position: center center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-indent: -9999px;
+}
+
+#list01:before{
+background-image: url(../../img/common/nav/dot_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-indent: -9999px;
+}
+
+#list02:before{
+background-image: url(../../img/common/nav/dot_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-indent: -9999px;
+}
+
+#list03:before{
+background-image: url(../../img/common/nav/dot_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-indent: -9999px;
+}
+
+#list04:before{
+background-image: url(../../img/common/nav/dot_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-indent: -9999px;
+}
+
+.picture{
+  margin-bottom: 100px;
+}
+
+* { margin: 0; padding: 0; }
+
+.main-movie {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.main-title-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.test-title {
+  display: inline-block;
+  width: 460px;
+  padding: 10px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  font-size: 2em;
+  background: #fff;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.buttons > * {
+  width: 240px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.buttons a {
+  display: block;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.buttons li{
+  color: white;
+  font-size: 20px;
+}
+
+.snap {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+}
+.area {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
+@media(max-width:575px){
+  #main{
+    display: block;
+    text-align: left;
+  }
+  #text-box{
+    margin-top: 20px;
+  }
+  
+.tabs-menu{
+  display: block;
+  text-align: center;
+}
+.anime{
+  margin: 20px;
+}
+.tabs-menu a{
+  font-size: 25px;
+}
+.menu-title{
+  font-size: 20px;
+}
+.tool p{
+  font-size: 30px;
+}
+}

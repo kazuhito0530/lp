@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/*横スクロール*/
+.horizontal-list {
+overflow-x: auto;
+white-space: nowrap;
+ }
+
+.item {
+/* 横スクロール用 */
+display: inline-block;
+
+/* 見た目調整 */
+margin: 16px;
+}
